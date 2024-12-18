@@ -1,0 +1,85 @@
+﻿<Window
+    x:Class="ETYUTB_Orai_Jelenlet_beadando.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:ETYUTB_Orai_Jelenlet_beadando.ViewModels"
+    xmlns:wpf="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+    Title="Ora jelenlet regisztracio"
+    Width="1000"
+    Height="600"
+    HorizontalAlignment="Center"
+    >
+    
+
+    <Grid Margin="0,0,0,49" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="257*" />
+            <ColumnDefinition Width="112*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,10,0,10"
+            HorizontalAlignment="Center"
+            Text="Nev" />
+        <TextBox
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="100"
+            Margin="10,10,0,10"
+            HorizontalAlignment="Left"
+            Text="{Binding Student.Name, Mode=TwoWay}" />
+        <TextBlock
+            Grid.Row="1"
+            Margin="0,10,0,10"
+            HorizontalAlignment="Center"
+            Text="Neptun" />
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="100"
+            Margin="10,10,0,10"
+            HorizontalAlignment="Left"
+            Text="{Binding Student.Neptun, Mode=TwoWay}" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="10,10,0,10"
+            HorizontalAlignment="Left"
+            Width="100"
+            Command="{Binding SubmitCommand}"
+            Content="Feljegyez" />
+        <ListView
+            Grid.Row="3"
+            Grid.Column="1"
+            Width="400"
+            Margin="10,10,45,10"
+            HorizontalAlignment="Left"
+            ItemsSource="{Binding Students}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding Name}"
+                        Header="Nev" />
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding Neptun}"
+                        Header="Neptun" />
+                    <GridViewColumn
+                        Width="200"
+                        DisplayMemberBinding="{Binding JoiningDate}"
+                        Header="Erkezes" />
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
